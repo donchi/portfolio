@@ -1,0 +1,30 @@
+DASHBOARD WIREFRAME
+-------------------------------
+- LOGO , YEARS FILTER
+- NET PROFIT MARGIN, EXPENSE MARGIN
+- DIVISION, MONTHS FILTER
+- REVENUE , GROSS PROFIT
+- COST OF GOODS, EXPENSES
+- NET INCOME BEFORE TAX, NET INCOME
+- EBIT (OPERATING INCOME), FINANCE COST, TAX
+ 
+
+STEPS
+-------------
+- UNPIVOT DR, CR - TYPE, ACCOUNTS 
+- NEGATE DR AMOUNT ENTRIES - USE CUSTOM COLUMN
+- DECIMAL TYPE
+- REMOVE DESCP AND OLD AMOUNT 
+- CREATE DIM DIVISION - REGIONS
+- CREATE CALENDAR FROM MIN AND MAX JOURNAL DATE - YEAR, MONTH NUM, MONTH NAME
+- SET AS DATE TABLE
+- MEASURES
+-----------
+- REPORTING VALUES - SUM JOURNAL(TB AMT )
+- Revenue - sum journal amt(reportng value) where category = revenue
+- COG - use same
+GP - Revenue + COG (negated)
+EBIT = GP + Exp (negated)
+Finance Cost (interest) - use same as revenue
+Earning before tax = EBIT + finance cost 
+Net income = EBT + tax 25%   (negated)
