@@ -1,0 +1,44 @@
+AWS
+--------------------------
+- CREATE FREE TIER ACCOUNT
+- UPLOAD SOURCE DATA TO S3 
+
+
+MATILLION / FIVETRAN
+--------------------------
+- CONNECT TO SOURCE DATA - S3 OR FLAT FILE
+- EXTRACT AND LOAD DATA TO SNOWFLAKES SOURCE DB/TABLE - DELTA LOAD
+- SETUP INCREMENTAL LOAD
+
+
+SNOWFLAKES
+---------------------------
+- CREATE DATA WAREHOUSE
+	- CREATE SOURCE DATABASE
+	- CREATE SCHEMA
+	- CREATE TABLES
+
+
+DBT - DATA TRANSFORMATION AND BUSINESS LOGIC
+---------------------------------------------------
+- CREATE MODELS FOLDERS - STAGING AND CORE
+- CREATE STAGING MODELS
+	- stg_products
+	- stg_customers
+	- stg_territory
+	- stg_orders
+- CREATE CORE MODELS
+	- dim_products
+	- dim_customers
+	- dim_territory
+	- fact_orders
+- CREATE YAML FILE
+	- SOURCE TABLES
+	- TESTS
+- CREATE DEPLOYMENT ENVR
+- CREATE JOB SCHEDULE
+
+
+TABLEAU
+-----------------------
+- CONNECT TO SNOWFLAKE

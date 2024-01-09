@@ -1,0 +1,67 @@
+DASHBOARD - HOME
+--------------------------------------
+
+FILTERS
+-------------
+- Date Range
+- YTD | QTD | MTD
+
+CARDS
+---------------------
+- Date default/filter
+- Revenue YTD $ | 14days previous
+- Units Sold YTD | 14days previous
+- Gross Profit YTD $ | 14days previous
+
+CHARTS
+---------------------
+Yesterday Sales & Returns:
+- Revenue/Units Sold by Products - Combo
+- Returns - Combo
+
+- Sales Trend - Line
+- Return Trend - Line
+- Sales By Product - Bar
+- Sales by Store - Map
+ 
+
+
+
+BUSINESS USERS REQUIREMENTS
+---------------------------------------------
+PRODUCT BACKLOG
+----------------------
+
+As a business user;
+
+- I would like to see the Financial Year Start, so i can know when the financial year starts and ends.
+
+- I would like to see the Sales YTD, Sales QTD, Sales MTD, so i can keep track of sales for the year, quarter and month.
+
+- I would like to see yesterday SALES ACROSS LOCATIONS, CATEGORIES AND PRODUCTS, so i can know how well our with our marketing campaigns are doing.
+
+- I would like to see PRODUCT SALES HISTORY, so i can keep track of product performance.
+
+- I would like to see LOCATION SALES HISTORY, so i can keep track of store performance.
+
+- I would like to see CATEGORY SALES HISTORY, so i can keep track of product performance at the category level.
+
+- I would like to see SALES TREND DRILL DOWN FROM YEAR TO QUARTER, MONTHS, WEEKS, so i can easily track sales performance in different periods
+
+- I would like to see TOP 10 CUSTOMERS, and top 10 PRODUCTS, so i can follow up with our best customers and keep track of best products.
+
+- I would like to see TOTAL CUSTOMERS, TOTAL PRODUCTS, TOTAL SALES, TOTAL PROFIT, AND AVG SALE PER DAY, so i can  get a quick overview of each item.
+
+- I would like to see the MOVING AVERAGE FOR SALES, so i can see GROWTH AND CONSISTENCY IN SALES OR OUTLIERS
+
+- I would like to see RUNNING TOTALS FOR SALES, so i can see GROWTH RATE for sales over time.
+
+- I would like to see the SALES TARGET, so i can monitor progress.
+
+- I would like to know what days of the week and time of the day, we sell the most, so i can target my marketing campaigns more effectively
+
+
+SPRINT BACKLOG
+------------------
+29-12-2023
+- I would like to see yesterday SALES ACROSS LOCATIONS, CATEGORIES AND PRODUCTS, so i can know how well our with our marketing campaigns are doing.
