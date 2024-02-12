@@ -1,0 +1,18 @@
+- Is the CPU Make AMD?
+- Is the CPU MAke Intel?
+- Is the GPU Type Intel?
+- is the Company Acer?
+- What is the weight in kg?
+- Is the Memory Type Flash?
+- Is the Company Razer?
+- Is the Type Name Workstation?
+- Is the Type Name Ultrabook?
+- Is the GPU Type Nvidia?
+- Is the Type Name Gaming? 
+- Is the Memory Type HDD?
+- What is the CPU Speed?
+- Is the Memory Type SSD?
+- Is the Type Name Notebook?
+- What is the Screen Resoultion Height?
+- What is the Screen Resolution Width?
+- What is the Ram?
