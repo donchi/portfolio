@@ -14608,6 +14608,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li>What year/month generated the most revenue, so they can replicate campaigns and other factors that led to high sales.</li>
 <li>What products are selling the most in volume and what is their comparison to profits, so they can increase profit margins for high selling volumes with low profits.</li>
 <li>Which customers are in the bottom 25% based on sales, so they can improve on follow up and email campaigns to those customers.</li>
+<li>Find out which product pairs are customer buying the most, so they could include a "Buy Also" in their online campaigns.</li>
 </ol>
 
 </div>
@@ -17317,7 +17318,7 @@ File <span class="ansi-green-intense-fg ansi-bold">~\anaconda3\Lib\site-packages
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>C:\Users\hp\AppData\Local\Temp\ipykernel_20304\3772549703.py:2: SettingWithCopyWarning: 
+<pre>C:\Users\hp\AppData\Local\Temp\ipykernel_3508\3772549703.py:2: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -17689,7 +17690,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -17714,7 +17715,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
 
 
 
@@ -17734,7 +17735,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># slice the bottom 25%</span>
@@ -17757,7 +17758,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
 
 
 
@@ -17904,7 +17905,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_bottom25customers</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">"bottom25pct_customers.csv"</span><span class="p">)</span>
@@ -17927,6 +17928,1054 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="4.-Which-product-pairs-are-customers-buying-the-most?">4. Which product pairs are customers buying the most?<a class="anchor-link" href="#4.-Which-product-pairs-are-customers-buying-the-most?">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_productsales</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>order_date</th>
+      <th>stock_date</th>
+      <th>order_number</th>
+      <th>product_key</th>
+      <th>customer_key</th>
+      <th>territory_key</th>
+      <th>orderline_item</th>
+      <th>order_quantity</th>
+      <th>year-month</th>
+      <th>ProductKey</th>
+      <th>ProductName</th>
+      <th>ProductCost</th>
+      <th>ProductPrice</th>
+      <th>revenue</th>
+      <th>costs</th>
+      <th>profit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-01-01</td>
+      <td>2019-09-21</td>
+      <td>SO45080</td>
+      <td>332</td>
+      <td>14657</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2020-01</td>
+      <td>332</td>
+      <td>Road-650 Black, 58</td>
+      <td>413.15</td>
+      <td>699.10</td>
+      <td>699.10</td>
+      <td>413.15</td>
+      <td>285.95</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-01-01</td>
+      <td>2019-12-05</td>
+      <td>SO45079</td>
+      <td>312</td>
+      <td>29255</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2020-01</td>
+      <td>312</td>
+      <td>Road-150 Red, 48</td>
+      <td>2171.29</td>
+      <td>3578.27</td>
+      <td>3578.27</td>
+      <td>2171.29</td>
+      <td>1406.98</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-01-01</td>
+      <td>2019-10-29</td>
+      <td>SO45082</td>
+      <td>350</td>
+      <td>11455</td>
+      <td>9</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2020-01</td>
+      <td>350</td>
+      <td>Mountain-100 Black, 44</td>
+      <td>1898.09</td>
+      <td>3374.99</td>
+      <td>3374.99</td>
+      <td>1898.09</td>
+      <td>1476.90</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2020-01-01</td>
+      <td>2019-11-16</td>
+      <td>SO45081</td>
+      <td>338</td>
+      <td>26782</td>
+      <td>6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2020-01</td>
+      <td>338</td>
+      <td>Road-650 Black, 44</td>
+      <td>413.15</td>
+      <td>699.10</td>
+      <td>699.10</td>
+      <td>413.15</td>
+      <td>285.95</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2020-01-02</td>
+      <td>2019-12-15</td>
+      <td>SO45083</td>
+      <td>312</td>
+      <td>14947</td>
+      <td>10</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2020-01</td>
+      <td>312</td>
+      <td>Road-150 Red, 48</td>
+      <td>2171.29</td>
+      <td>3578.27</td>
+      <td>3578.27</td>
+      <td>2171.29</td>
+      <td>1406.98</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get duplicates order number, since we are on orderline</span>
+<span class="n">df_pairs</span> <span class="o">=</span> <span class="n">df_productsales</span><span class="p">[</span><span class="n">df_productsales</span><span class="p">[</span><span class="s1">'order_number'</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)][[</span><span class="s1">'order_number'</span><span class="p">,</span> <span class="s1">'ProductName'</span><span class="p">]]</span>
+<span class="n">df_pairs</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[45]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>order_number</th>
+      <th>ProductName</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4336</th>
+      <td>SO51176</td>
+      <td>Road-250 Black, 58</td>
+    </tr>
+    <tr>
+      <th>4337</th>
+      <td>SO51176</td>
+      <td>Road Bottle Cage</td>
+    </tr>
+    <tr>
+      <th>4339</th>
+      <td>SO51179</td>
+      <td>Road Tire Tube</td>
+    </tr>
+    <tr>
+      <th>4340</th>
+      <td>SO51179</td>
+      <td>Road-250 Black, 52</td>
+    </tr>
+    <tr>
+      <th>4341</th>
+      <td>SO51179</td>
+      <td>All-Purpose Bike Stand</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[46]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># group products with same order number using transform</span>
+<span class="n">df_pairs</span><span class="p">[</span><span class="s1">'grouped_products'</span><span class="p">]</span> <span class="o">=</span>  <span class="n">df_pairs</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'order_number'</span><span class="p">)[</span><span class="s1">'ProductName'</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">df_pairs</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[46]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>order_number</th>
+      <th>ProductName</th>
+      <th>grouped_products</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4336</th>
+      <td>SO51176</td>
+      <td>Road-250 Black, 58</td>
+      <td>Road-250 Black, 58,Road Bottle Cage</td>
+    </tr>
+    <tr>
+      <th>4337</th>
+      <td>SO51176</td>
+      <td>Road Bottle Cage</td>
+      <td>Road-250 Black, 58,Road Bottle Cage</td>
+    </tr>
+    <tr>
+      <th>4339</th>
+      <td>SO51179</td>
+      <td>Road Tire Tube</td>
+      <td>Road Tire Tube,Road-250 Black, 52,All-Purpose ...</td>
+    </tr>
+    <tr>
+      <th>4340</th>
+      <td>SO51179</td>
+      <td>Road-250 Black, 52</td>
+      <td>Road Tire Tube,Road-250 Black, 52,All-Purpose ...</td>
+    </tr>
+    <tr>
+      <th>4341</th>
+      <td>SO51179</td>
+      <td>All-Purpose Bike Stand</td>
+      <td>Road Tire Tube,Road-250 Black, 52,All-Purpose ...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># drop duplicate rows</span>
+<span class="n">df_pairs</span> <span class="o">=</span> <span class="n">df_pairs</span><span class="p">[[</span><span class="s1">'order_number'</span><span class="p">,</span><span class="s1">'grouped_products'</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">df_pairs</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[47]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>order_number</th>
+      <th>grouped_products</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4336</th>
+      <td>SO51176</td>
+      <td>Road-250 Black, 58,Road Bottle Cage</td>
+    </tr>
+    <tr>
+      <th>4339</th>
+      <td>SO51179</td>
+      <td>Road Tire Tube,Road-250 Black, 52,All-Purpose ...</td>
+    </tr>
+    <tr>
+      <th>4343</th>
+      <td>SO51185</td>
+      <td>Touring Tire,Touring Tire Tube,Touring-3000 Ye...</td>
+    </tr>
+    <tr>
+      <th>4346</th>
+      <td>SO51177</td>
+      <td>Sport-100 Helmet, Black,Touring-2000 Blue, 46</td>
+    </tr>
+    <tr>
+      <th>4348</th>
+      <td>SO51180</td>
+      <td>Road Bottle Cage,Sport-100 Helmet, Red,Long-Sl...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[100]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># We would import new libraries, intertools and collections to perform a count of pairs</span>
+
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+<span class="n">product_list</span> <span class="o">=</span> <span class="n">df_pairs</span><span class="p">[</span><span class="s1">'grouped_products'</span><span class="p">]</span>
+
+<span class="n">product_paired_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="c1"># count the combinations of 2pairs and update the counter</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">product_list</span><span class="p">:</span>
+    <span class="n">row_list</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
+    <span class="n">count</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">combinations</span><span class="p">(</span><span class="n">row_list</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+    
+<span class="c1"># we would get the most common 50 pairs</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">count</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">'</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">'</span>
+    <span class="n">product_paired_2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">key</span><span class="p">,</span> <span class="s1">'count_of_2_pairs'</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[101]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># dispaly results</span>
+<span class="n">product_paired_2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[101]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count_of_2_pairs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>('Sport-100 Helmet', ' Red')</th>
+      <td>2044</td>
+    </tr>
+    <tr>
+      <th>('Sport-100 Helmet', ' Blue')</th>
+      <td>1948</td>
+    </tr>
+    <tr>
+      <th>('Sport-100 Helmet', ' Black')</th>
+      <td>1883</td>
+    </tr>
+    <tr>
+      <th>('Water Bottle - 30 oz.', 'Mountain Bottle Cage')</th>
+      <td>1257</td>
+    </tr>
+    <tr>
+      <th>('Water Bottle - 30 oz.', 'Road Bottle Cage')</th>
+      <td>1173</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[102]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># we would reset the index and rename the indexed column</span>
+<span class="n">product_paired_2</span> <span class="o">=</span> <span class="n">product_paired_2</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'index'</span><span class="p">:</span><span class="s1">'product_2_pairs'</span><span class="p">})</span>
+<span class="n">product_paired_2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[102]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>product_2_pairs</th>
+      <th>count_of_2_pairs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>('Sport-100 Helmet', ' Red')</td>
+      <td>2044</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>('Sport-100 Helmet', ' Blue')</td>
+      <td>1948</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>('Sport-100 Helmet', ' Black')</td>
+      <td>1883</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>('Water Bottle - 30 oz.', 'Mountain Bottle Cage')</td>
+      <td>1257</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>('Water Bottle - 30 oz.', 'Road Bottle Cage')</td>
+      <td>1173</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[103]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># we would clean columns values</span>
+<span class="n">product_paired_2</span><span class="p">[</span><span class="s1">'product_2_pairs'</span><span class="p">]</span> <span class="o">=</span> <span class="n">product_paired_2</span><span class="p">[</span><span class="s1">'product_2_pairs'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"("</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">product_paired_2</span><span class="p">[</span><span class="s1">'product_2_pairs'</span><span class="p">]</span> <span class="o">=</span> <span class="n">product_paired_2</span><span class="p">[</span><span class="s1">'product_2_pairs'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">")"</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> 
+<span class="n">product_paired_2</span><span class="p">[</span><span class="s1">'product_2_pairs'</span><span class="p">]</span> <span class="o">=</span> <span class="n">product_paired_2</span><span class="p">[</span><span class="s1">'product_2_pairs'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"'"</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[104]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">product_paired_2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[104]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>product_2_pairs</th>
+      <th>count_of_2_pairs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Sport-100 Helmet,  Red</td>
+      <td>2044</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Sport-100 Helmet,  Blue</td>
+      <td>1948</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sport-100 Helmet,  Black</td>
+      <td>1883</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Water Bottle - 30 oz., Mountain Bottle Cage</td>
+      <td>1257</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Water Bottle - 30 oz., Road Bottle Cage</td>
+      <td>1173</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We can export to csv and send to marketing but lets add pairs of 3 to give them more insights</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[108]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># we would copy the needed codes and modify</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+<span class="n">product_list</span> <span class="o">=</span> <span class="n">df_pairs</span><span class="p">[</span><span class="s1">'grouped_products'</span><span class="p">]</span>
+
+<span class="n">product_paired_3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">product_list</span><span class="p">:</span>
+    <span class="n">row_list</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
+    <span class="n">count</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">combinations</span><span class="p">(</span><span class="n">row_list</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
+
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">count</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">'</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">'</span>
+    <span class="n">product_paired_3</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">key</span><span class="p">,</span> <span class="s1">'count_of_3_pairs'</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[111]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">product_paired_3</span> <span class="o">=</span> <span class="n">product_paired_3</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'index'</span><span class="p">:</span><span class="s1">'product_3_pairs'</span><span class="p">})</span>
+<span class="n">product_paired_3</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[111]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>product_3_pairs</th>
+      <th>count_of_3_pairs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>('Water Bottle - 30 oz.', 'Road Bottle Cage', ...</td>
+      <td>380</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>('Mountain Tire Tube', 'Sport-100 Helmet', ' B...</td>
+      <td>359</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>('Mountain Tire Tube', 'Sport-100 Helmet', ' R...</td>
+      <td>350</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>('Mountain Tire Tube', 'Sport-100 Helmet', ' B...</td>
+      <td>348</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>('Water Bottle - 30 oz.', 'Sport-100 Helmet', ...</td>
+      <td>321</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[112]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># clean columns values</span>
+<span class="n">product_paired_3</span><span class="p">[</span><span class="s1">'product_3_pairs'</span><span class="p">]</span> <span class="o">=</span> <span class="n">product_paired_3</span><span class="p">[</span><span class="s1">'product_3_pairs'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"("</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">product_paired_3</span><span class="p">[</span><span class="s1">'product_3_pairs'</span><span class="p">]</span> <span class="o">=</span> <span class="n">product_paired_3</span><span class="p">[</span><span class="s1">'product_3_pairs'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">")"</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> 
+<span class="n">product_paired_3</span><span class="p">[</span><span class="s1">'product_3_pairs'</span><span class="p">]</span> <span class="o">=</span> <span class="n">product_paired_3</span><span class="p">[</span><span class="s1">'product_3_pairs'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"'"</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[113]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">product_paired_3</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[113]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>product_3_pairs</th>
+      <th>count_of_3_pairs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Water Bottle - 30 oz., Road Bottle Cage, Road-...</td>
+      <td>380</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Mountain Tire Tube, Sport-100 Helmet,  Black</td>
+      <td>359</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Mountain Tire Tube, Sport-100 Helmet,  Red</td>
+      <td>350</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Mountain Tire Tube, Sport-100 Helmet,  Blue</td>
+      <td>348</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Water Bottle - 30 oz., Sport-100 Helmet,  Red</td>
+      <td>321</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[114]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># save to csv</span>
+<span class="n">product_paired_2</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">"product_paired_2.csv"</span><span class="p">)</span>
+<span class="n">product_paired_3</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">"product_paired_3.csv"</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
