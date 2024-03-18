@@ -14591,7 +14591,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>This machine learning model was created to predict if a current employee is likely to leave the company or stay based on certain conditions.</p>
+<p>This machine learning model was created to predict if an employee is likely to leave the company based on certain conditions.</p>
 
 </div>
 </div>
@@ -14608,11 +14608,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li>Clean and Transform the data</li>
 <li>Convert String Columns to Numbers</li>
 <li>Filter Important Features</li>
-<li>Split the data</li>
 </ul>
 </li>
-<li>Choose Model, Train Model and Predict</li>
-<li>Evaluate Model and Improve the Model (if score is low)</li>
+<li>Choose the Model, Train the Model and Predict</li>
+<li>Evaluate the Model and Improve the Model (if score is low)</li>
 <li>Save and Load the Model</li>
 </ol>
 
@@ -15423,7 +15422,7 @@ memory usage: 448.0+ KB
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># check conversion</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># preview conversions</span>
 <span class="n">df_attrition</span><span class="p">[[</span><span class="s1">'Attrition'</span><span class="p">,</span><span class="s1">'Employee_Attrition'</span><span class="p">,</span><span class="s1">'Over Time'</span><span class="p">,</span><span class="s1">'Over_Time'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -15526,7 +15525,7 @@ memory usage: 448.0+ KB
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># drop attrition and over time</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># drop attrition and over time old columns</span>
 <span class="n">df_attrition</span> <span class="o">=</span> <span class="n">df_attrition</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'Attrition'</span><span class="p">,</span> <span class="s1">'Over Time'</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
@@ -15535,6 +15534,18 @@ memory usage: 448.0+ KB
 </div>
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We would use pandas dummies to one hot encode the string columns</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15543,7 +15554,7 @@ memory usage: 448.0+ KB
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get string columns</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># display string columns</span>
 <span class="n">df_attrition</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span> <span class="o">=</span> <span class="s1">'object'</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
@@ -15648,7 +15659,8 @@ memory usage: 448.0+ KB
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">string_columns</span> <span class="o">=</span> <span class="n">df_attrition</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span> <span class="o">=</span> <span class="s1">'object'</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get string columns and convert to numbers</span>
+<span class="n">string_columns</span> <span class="o">=</span> <span class="n">df_attrition</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span> <span class="o">=</span> <span class="s1">'object'</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
 <span class="n">string_columns</span>
 </pre></div>
 
@@ -15692,7 +15704,7 @@ memory usage: 448.0+ KB
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># convert string columns to number using pandas dummies</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># convert string columns to numbers using pandas dummies</span>
 <span class="n">dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df_attrition</span><span class="p">[</span><span class="n">string_columns</span><span class="p">])</span>
 <span class="n">dummies</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -16005,7 +16017,7 @@ memory usage: 448.0+ KB
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># merge the two dataframes</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># merge the two transformed dataframes - df_attrition and dummies</span>
 <span class="n">transformed_df</span> <span class="o">=</span> <span class="n">df_attrition</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dummies</span><span class="p">)</span>
 </pre></div>
 
@@ -16259,9 +16271,9 @@ memory usage: 448.0+ KB
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get important features by finding the high correlated features whether positive or negative</span>
-<span class="c1"># we would get the top 20</span>
-<span class="n">transformed_df</span><span class="o">.</span><span class="n">corr</span><span class="p">()[</span><span class="s1">'Employee_Attrition'</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">21</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get highly correlated features whether positive or negative</span>
+<span class="c1"># we would get the top 10</span>
+<span class="n">transformed_df</span><span class="o">.</span><span class="n">corr</span><span class="p">()[</span><span class="s1">'Employee_Attrition'</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">11</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -16285,27 +16297,17 @@ memory usage: 448.0+ KB
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>Employee_Attrition                   1.000000
-Over_Time                            0.246118
-Marital Status_Single                0.175419
-Total Working Years                  0.171063
-Job Level                            0.169105
-CF_age band_Under 25                 0.166623
-Years In Current Role                0.160545
-Monthly Income                       0.159840
-Age                                  0.159205
-Job Role_Sales Representative        0.157234
-Years With Curr Manager              0.156199
-Stock Option Level                   0.137145
-Years At Company                     0.134392
-Job Involvement                      0.130016
-CF_age band_35 - 44                  0.118492
-Business Travel_Travel_Frequently    0.115143
-Job Satisfaction                     0.103481
-Environment Satisfaction             0.103369
-Job Role_Laboratory Technician       0.098290
-Marital Status_Married               0.090984
-Job Role_Research Director           0.088870
+<pre>Employee_Attrition               1.000000
+Over_Time                        0.246118
+Marital Status_Single            0.175419
+Total Working Years              0.171063
+Job Level                        0.169105
+CF_age band_Under 25             0.166623
+Years In Current Role            0.160545
+Monthly Income                   0.159840
+Age                              0.159205
+Job Role_Sales Representative    0.157234
+Years With Curr Manager          0.156199
 Name: Employee_Attrition, dtype: float64</pre>
 </div>
 
@@ -16323,7 +16325,7 @@ Name: Employee_Attrition, dtype: float64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">top_corr_features</span> <span class="o">=</span> <span class="n">df_attrition</span><span class="o">.</span><span class="n">corr</span><span class="p">()[</span><span class="s1">'Employee_Attrition'</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">21</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">top_corr_features</span> <span class="o">=</span> <span class="n">transformed_df</span><span class="o">.</span><span class="n">corr</span><span class="p">()[</span><span class="s1">'Employee_Attrition'</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">11</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
 <span class="n">top_corr_features</span>
 </pre></div>
 
@@ -16348,14 +16350,10 @@ Name: Employee_Attrition, dtype: float64</pre>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>Index([&#39;Employee_Attrition&#39;, &#39;Over_Time&#39;, &#39;Total Working Years&#39;, &#39;Job Level&#39;,
+<pre>Index([&#39;Employee_Attrition&#39;, &#39;Over_Time&#39;, &#39;Marital Status_Single&#39;,
+       &#39;Total Working Years&#39;, &#39;Job Level&#39;, &#39;CF_age band_Under 25&#39;,
        &#39;Years In Current Role&#39;, &#39;Monthly Income&#39;, &#39;Age&#39;,
-       &#39;Years With Curr Manager&#39;, &#39;Stock Option Level&#39;, &#39;Years At Company&#39;,
-       &#39;Job Involvement&#39;, &#39;Job Satisfaction&#39;, &#39;Environment Satisfaction&#39;,
-       &#39;Distance From Home&#39;, &#39;Work Life Balance&#39;, &#39;Training Times Last Year&#39;,
-       &#39;Relationship Satisfaction&#39;, &#39;Num Companies Worked&#39;,
-       &#39;Years Since Last Promotion&#39;, &#39;Percent Salary Hike&#39;,
-       &#39;Performance Rating&#39;],
+       &#39;Job Role_Sales Representative&#39;, &#39;Years With Curr Manager&#39;],
       dtype=&#39;object&#39;)</pre>
 </div>
 
@@ -16373,7 +16371,8 @@ Name: Employee_Attrition, dtype: float64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">top_corr_df</span> <span class="o">=</span> <span class="n">transformed_df</span><span class="p">[</span><span class="n">top_corr_features</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># top features</span>
+<span class="n">top_corr_df</span> <span class="o">=</span> <span class="n">transformed_df</span><span class="p">[</span><span class="n">top_corr_features</span><span class="p">]</span>
 <span class="n">top_corr_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
@@ -16417,25 +16416,15 @@ Name: Employee_Attrition, dtype: float64</pre>
       <th></th>
       <th>Employee_Attrition</th>
       <th>Over_Time</th>
+      <th>Marital Status_Single</th>
       <th>Total Working Years</th>
       <th>Job Level</th>
+      <th>CF_age band_Under 25</th>
       <th>Years In Current Role</th>
       <th>Monthly Income</th>
       <th>Age</th>
+      <th>Job Role_Sales Representative</th>
       <th>Years With Curr Manager</th>
-      <th>Stock Option Level</th>
-      <th>Years At Company</th>
-      <th>Job Involvement</th>
-      <th>Job Satisfaction</th>
-      <th>Environment Satisfaction</th>
-      <th>Distance From Home</th>
-      <th>Work Life Balance</th>
-      <th>Training Times Last Year</th>
-      <th>Relationship Satisfaction</th>
-      <th>Num Companies Worked</th>
-      <th>Years Since Last Promotion</th>
-      <th>Percent Salary Hike</th>
-      <th>Performance Rating</th>
     </tr>
   </thead>
   <tbody>
@@ -16443,73 +16432,43 @@ Name: Employee_Attrition, dtype: float64</pre>
       <th>0</th>
       <td>1</td>
       <td>1</td>
+      <td>1</td>
       <td>8</td>
       <td>2</td>
+      <td>0</td>
       <td>4</td>
       <td>5993</td>
       <td>41</td>
+      <td>0</td>
       <td>5</td>
-      <td>0</td>
-      <td>6</td>
-      <td>3</td>
-      <td>4</td>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>8</td>
-      <td>0</td>
-      <td>11</td>
-      <td>3</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
       <td>10</td>
       <td>2</td>
+      <td>0</td>
       <td>7</td>
       <td>5130</td>
       <td>49</td>
+      <td>0</td>
       <td>7</td>
-      <td>1</td>
-      <td>10</td>
-      <td>2</td>
-      <td>2</td>
-      <td>3</td>
-      <td>8</td>
-      <td>3</td>
-      <td>3</td>
-      <td>4</td>
-      <td>1</td>
-      <td>1</td>
-      <td>23</td>
-      <td>4</td>
     </tr>
     <tr>
       <th>2</th>
       <td>1</td>
       <td>1</td>
+      <td>1</td>
       <td>7</td>
       <td>1</td>
+      <td>0</td>
       <td>0</td>
       <td>2090</td>
       <td>37</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>2</td>
-      <td>3</td>
-      <td>3</td>
-      <td>2</td>
-      <td>6</td>
-      <td>0</td>
-      <td>15</td>
-      <td>3</td>
     </tr>
   </tbody>
 </table>
@@ -16522,24 +16481,6 @@ Name: Employee_Attrition, dtype: float64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Split the data in train and test data</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">top_corr_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'Employee_Attrition'</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">top_corr_df</span><span class="p">[</span><span class="s1">'Employee_Attrition'</span><span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -16547,7 +16488,7 @@ Name: Employee_Attrition, dtype: float64</pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.-Choose-Model,-Train-Model-and-Predict">2. Choose Model, Train Model and Predict<a class="anchor-link" href="#2.-Choose-Model,-Train-Model-and-Predict">&#182;</a></h3>
+<h3 id="2.-Choose-the-Model,-Train-the-Model-and-Run-Predictions">2. Choose the Model, Train the Model and Run Predictions<a class="anchor-link" href="#2.-Choose-the-Model,-Train-the-Model-and-Run-Predictions">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -16556,12 +16497,16 @@ Name: Employee_Attrition, dtype: float64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="c1"># Split the data into train and test data</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">top_corr_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'Employee_Attrition'</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">top_corr_df</span><span class="p">[</span><span class="s1">'Employee_Attrition'</span><span class="p">]</span>
 
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
 
@@ -16595,13 +16540,13 @@ Name: Employee_Attrition, dtype: float64</pre>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([0, 1, 0, 0, 0, 0, 0, 0, 1, 0], dtype=int64)</pre>
+<pre>array([0, 0, 0, 0, 0, 0, 0, 0, 1, 0], dtype=int64)</pre>
 </div>
 
 </div>
@@ -16626,10 +16571,11 @@ Name: Employee_Attrition, dtype: float64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># how well did the model train</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16647,13 +16593,13 @@ Name: Employee_Attrition, dtype: float64</pre>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[43]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.8741496598639455</pre>
+<pre>1.0</pre>
 </div>
 
 </div>
@@ -16667,7 +16613,49 @@ Name: Employee_Attrition, dtype: float64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># how well did the model predict</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.8639455782312925</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
@@ -16690,13 +16678,13 @@ Name: Employee_Attrition, dtype: float64</pre>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.8741496598639455</pre>
+<pre>0.8639455782312925</pre>
 </div>
 
 </div>
@@ -16716,47 +16704,23 @@ Name: Employee_Attrition, dtype: float64</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[52]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">dump</span><span class="p">,</span> <span class="n">load</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
 
-<span class="n">dump</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="s2">"employee-attrition-predict.joblib"</span><span class="p">)</span>
+<span class="c1"># save the model</span>
+<span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"model/employee-attrition-predict.pk1"</span><span class="p">,</span><span class="s2">"wb"</span><span class="p">))</span>
 </pre></div>
 
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[52]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[&#39;employee-attrition-predict.joblib&#39;]</pre>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -16764,10 +16728,11 @@ Name: Employee_Attrition, dtype: float64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[53]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">loaded_model</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="s2">"employee-attrition-predict.joblib"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load model</span>
+<span class="n">attrition_model</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">"model/employee-attrition-predict.pk1"</span><span class="p">,</span><span class="s2">"rb"</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -16780,10 +16745,12 @@ Name: Employee_Attrition, dtype: float64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[55]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">loaded_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># run a prediction</span>
+<span class="n">attrition_y_preds</span> <span class="o">=</span> <span class="n">attrition_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">)</span>
+<span class="n">attrition_y_preds</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -16801,13 +16768,54 @@ Name: Employee_Attrition, dtype: float64</pre>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[55]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.8741496598639455</pre>
+<pre>array([0, 0, 0, 0, 0, 0, 0, 0, 1, 0], dtype=int64)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">attrition_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.8639455782312925</pre>
 </div>
 
 </div>
