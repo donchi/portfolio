@@ -1,4 +1,4 @@
-Row ID,Order ID,Order Date Cleaned,Ship Date,Ship Mode,Customer ID,Segment,Postal Code,Product ID,Sales,Quantity,Discount,Profit
+Row ID,Order ID,Order Date,Ship Date,Ship Mode,Customer ID,Segment,Postal Code,Product ID,Sales,Quantity,Discount,Profit
 1,CA-2022-152156,8/11/2022,11/11/2022,Second Class,CG-12520,Consumer,42420,FUR-BO-10001798,261.96,2,0,41.9136
 2,CA-2022-152156,8/11/2022,11/11/2022,Second Class,CG-12520,Consumer,42420,FUR-CH-10000454,731.94,3,0,219.582
 3,CA-2022-138688,12/6/2022,16/06/2022,Second Class,DV-13045,Corporate,90036,OFF-LA-10000240,14.62,2,0,6.8714
